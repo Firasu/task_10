@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item Create</title>
+</head>
+<body>
+  <form action="{% url 'item-create' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Item Create" class="btn btn-outline-success">
+  </form>
+</body>
+</html>

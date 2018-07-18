@@ -1,6 +1,7 @@
 from django import forms
-from .models import Restaurant
+from .models import Restaurant, Item
 from django.contrib.auth.models import User
+
 
 class RestaurantForm(forms.ModelForm):
     class Meta:
@@ -11,6 +12,11 @@ class RestaurantForm(forms.ModelForm):
         	'opening_time': forms.TimeInput(attrs={'type':'time'}),
         	'closing_time': forms.TimeInput(attrs={'type':'time'}),
         }
+
+class ItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        exclude = ('restaurant',)
 
 
 class SignupForm(forms.ModelForm):
